@@ -1,0 +1,46 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-grey;
+}
+
+.modal {
+  width: 35%;
+  padding: 20px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: $color-dark;
+
+  &__close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    align-self: flex-end;
+    font-size: 20px;
+    color: $color-purple--light;
+    background-color: $color-white;
+    border: none;
+    border-radius: 18px;
+    outline: none;
+
+    transition: background-color 0.7s, color 0.7s;
+  }
+
+  &__content {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    color: $color-white;
+  }
+
+  &__close:hover {
+    background-color: $color-purple;
+    color: $color-white;
+  }
+}

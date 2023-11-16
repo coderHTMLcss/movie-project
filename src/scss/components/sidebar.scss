@@ -1,0 +1,83 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: $color-sidebar;
+  padding-top: 40px;
+  width: 110px;
+  height: 100vh;
+  @include flex(flex-start, center, column);
+
+  transition: all 1.3s ease;
+  overflow: hidden;
+  box-shadow: 2px 0px 90px 0px rgba(97, 0, 194, 0.4);
+}
+
+.sidebar:hover {
+  align-items: flex-start;
+  width: 274px;
+  padding-left: 40px;
+}
+
+.navigation {
+  transition: all 1.3s;
+  @include flex(flex-start, center, column);
+}
+
+.sidebar:hover .navigation {
+  @include flex(flex-start, flex-start, column);
+}
+
+.logo {
+  @include flex(flex-start, center, row);
+
+  column-gap: 7px;
+  margin-bottom: 58px;
+
+  &__name {
+    display: none;
+  }
+}
+
+.sidebar:hover .logo__name {
+  @include text(22px, 24px, 700, $color-white);
+
+  display: block;
+}
+
+.nav,
+.community,
+.logout-mode {
+  &__item {
+    margin-bottom: 35px;
+  }
+
+  &__link {
+    @include flex(flex-start, flex-start, row);
+    column-gap: 12px;
+    @include text(16px, 24px, 400, $color-white);
+    white-space: nowrap;
+  }
+}
+
+.span:hover {
+  border-bottom: 2px solid $color-white;
+}
+.span {
+  display: none;
+}
+.sidebar:hover .span {
+  display: block;
+}
+
+.community {
+  margin-top: 122px;
+}
+
+.logout-mode {
+  margin-top: 122px;
+
+  &__item:nth-child(2) {
+    margin-bottom: 0px;
+  }
+}

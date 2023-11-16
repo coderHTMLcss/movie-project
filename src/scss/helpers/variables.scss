@@ -1,0 +1,21 @@
+//COLORS//
+
+$color-purple: #6100c2;
+$color-purple--light: #7900c2;
+$color-dark: #37312a;
+$color-white--gradient: rgba(255, 255, 255, 62%);
+$color-grey: #969696;
+$color-white: #ffffff;
+$color-sidebar: #21201e;
+$color-background: #1a1a1a;
+$color-text: #000000;
+$linear-gradient: var(
+  --Dark,
+  linear-gradient(357deg, #37312a -5.36%, #191817 70.82%, #191817 78.81%)
+);
+
+// BREAKPOINTS//
+$mobile: 375px;
+$tablet: 768px;
+$tablet-bigger: 1024px;
+$desktop: 1440px;

@@ -1,0 +1,90 @@
+body {
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  background-color: $color-background;
+  background: $linear-gradient;
+
+  font-size: 16px;
+  color: $color-white;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.button {
+  display: inline-block;
+  border: transparent;
+  outline: none;
+  cursor: pointer;
+  color: $color-white;
+  background-color: $color-purple;
+
+  &__primary,
+  &__primary--login {
+    font-family: inherit;
+    padding: 17px 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-size: inherit;
+    line-height: 20px;
+    font-weight: 600;
+
+    border-radius: 14px;
+    transition: all 0.7s ease-in-out;
+  }
+
+  &__primary--login {
+    padding: 17px 90px;
+    transition: all 1s ease-in-out;
+  }
+
+  &__primary:active,
+  &__primary--login:active {
+    color: $color-text;
+    background-color: $color-white;
+    outline: solid 2px $color-purple;
+  }
+
+  &__primary:focus,
+  &__primary--login:focus {
+    outline: solid 2px $color-white;
+  }
+
+  &__primary:hover {
+    padding: 17px 40px;
+  }
+
+  &__primary:hover,
+  &__primary--login:hover {
+    color: $color-text;
+    background-color: $color-white;
+    outline: solid 2px $color-purple;
+  }
+
+  &__primary--login:hover {
+    padding: 17px 65px;
+  }
+
+  &__secondary {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 14px;
+    background: linear-gradient(
+      99deg,
+      #fff 3.36%,
+      rgba(255, 255, 255, 0) 238.16%
+    );
+
+    backdrop-filter: blur(10px);
+
+    transition: fill 1s ease, stroke 1s ease-in-out;
+  }
+}

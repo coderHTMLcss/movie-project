@@ -1,0 +1,76 @@
+.header {
+  height: 455px;
+  background-image: url("../img/picture/backgriund.png");
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-nav,
+.control-panel {
+  @include flex(space-between, inherit, row);
+}
+
+.header-nav {
+  padding: 42px 42px;
+
+  &__list {
+    @include flex(space-between, center, row);
+  }
+
+  &__item {
+    margin: 0 32px 0 0;
+  }
+
+  &__link {
+    @include text(16px, 18px, 500, $color-white);
+
+    transition: font-size 0.3s ease-in;
+  }
+
+  &__link:hover {
+    font-size: 140%;
+  }
+}
+.control-panel {
+  @include flex(inherit, center, row);
+
+  column-gap: 24px;
+
+  &__item {
+    cursor: pointer;
+  }
+}
+
+.header-content {
+  margin: 113px auto auto 32px;
+
+  &__title,
+  &__description {
+    color: $color-white;
+    font-family: "Poppins", sans-serif;
+  }
+
+  &__title {
+    @include text(48px, 48px, 600, inherit);
+
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    @include text(14px, 20px, 400, inherit);
+
+    margin-bottom: 36px;
+  }
+}
+
+.header-buttons {
+  @include flex(inherit, center, row);
+
+  column-gap: 16px;
+}
+
+.button__primary {
+  padding: 17px 24px;
+}
