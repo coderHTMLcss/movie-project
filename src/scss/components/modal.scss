@@ -1,46 +1,80 @@
-.wrapper {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $color-grey;
+.modal {
+  display: none;
+}
+.modal.active {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: $color-white--modal;
 }
 
-.modal {
-  width: 35%;
-  padding: 20px 40px 40px;
+.modal-wrapper {
+  padding: 30px 30px;
+  width: 50%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
-  background-color: $color-dark;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 20px;
 
-  &__close {
-    display: block;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    align-self: flex-end;
-    font-size: 20px;
-    color: $color-purple--light;
-    background-color: $color-white;
+  background: linear-gradient(
+    320deg,
+    rgb(58 17 119) -98.01%,
+    rgb(35, 33, 30) 63%,
+    #e91e63 258.28%
+  );
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
     border: none;
-    border-radius: 18px;
+    cursor: pointer;
+    color: $color-purple;
+    transition: font-size 0.3s ease-in;
+  }
+
+  .modal-close:hover {
+    font-size: 35px;
+  }
+}
+
+.tabs {
+  &__modal-head {
+    display: flex;
+    align-items: center;
+    column-gap: 70px;
+  }
+
+  &__modal-btn {
+    padding: 11px 17px;
+    width: 120px;
+    border: 2px solid $color-purple;
     outline: none;
+    cursor: pointer;
+    align-items: center;
+    border-radius: 5px;
+    @include text(22px, 24px, 500, $color-purple);
 
-    transition: background-color 0.7s, color 0.7s;
+    background-color: transparent;
   }
 
-  &__content {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 400;
+  &__modal-btn.active {
+    background-color: $color-purple--light;
     color: $color-white;
-  }
-
-  &__close:hover {
-    background-color: $color-purple;
-    color: $color-white;
+    border: 2px solid $color-white;
   }
 }

@@ -1,20 +1,31 @@
 import CreateElement from "../../utils/CreateElement.js";
 import { FIELDS_DATA } from "../../constans/root.js";
+import { FIELDS_DATA_REGISTER } from "../../constans/root.js";
 
-class Form {
-  render() {
+export default class Form {
+  constructor(parent) {
+    this.parent = parent;
+  }
+  renderFormLogin() {
+    const form = new CreateElement("form", {
+      className: "form-login",
+    }).render();
+
     FIELDS_DATA.forEach((field) => {
-      const label = new CreateElement("label", field).render();
       const input = new CreateElement("input", field);
-      label.append(input.render());
-      document.body.prepend(label);
+      form.append(input.render());
     });
-    const buttonSbm = new CreateElement("button", {
-      textContent: "Надіслати",
-      type: "submit",
+    this.parent.append(form);
+  }
+
+  renderFormRegistr() {
+    const form = new CreateElement("form", {
+      className: "form-register",
+    }).render();
+    FIELDS_DATA_REGISTER.forEach((value) => {
+      const input = new CreateElement("input", value);
+      form.append(input.render());
     });
-    document.body.prepend(buttonSbm.render());
+    this.parent.append(form);
   }
 }
-
-export const pageForm = new Form();

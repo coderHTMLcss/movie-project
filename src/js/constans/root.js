@@ -9,13 +9,43 @@ export const FIELDS_DATA = [
   {
     type: "text",
     name: "username",
-    placeholder: "Ваше імя",
+    placeholder: "Email address",
     value: "",
+    required: true,
   },
   {
     type: "password",
     name: "password",
-    placeholder: "password",
+    placeholder: "Password",
     value: "",
+    required: true,
   },
+  { type: "submit", name: "submit", value: "Login" },
 ];
+
+export const FIELDS_DATA_REGISTER = [
+  {
+    type: "text",
+    name: "username",
+    placeholder: "Email address",
+    value: "",
+    required: true,
+  },
+  {
+    type: "password",
+    name: "password",
+    placeholder: "Password",
+    value: "",
+    required: true,
+  },
+  {
+    type: "password",
+    name: "password",
+    placeholder: "Password",
+    value: "",
+    required: true,
+  },
+  { type: "submit", name: "submit", value: "Sign Up" },
+];
+
+export const LOGIN_ROOT = document.querySelector(".button__primary--login");

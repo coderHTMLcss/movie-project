@@ -1,37 +1,19 @@
-import CreateElement from "../../utils/CreateElement.js";
-import { MODAL_CONTENT } from "../../constans/root.js";
+import Form from "../Form/Form";
 
-class Modal {
+export default class Modal {
   render(btn) {
+    const modal = document.querySelector(".modal");
+
     btn.addEventListener("click", () => {
-      const wrapper = new CreateElement("div", {
-        className: "wrapper",
-      }).render();
-      const modal = new CreateElement("div", {
-        className: "modal",
-      }).render();
-      const modalContent = new CreateElement("span", {
-        className: "modal__content",
-        textContent: `${MODAL_CONTENT}`,
-      }).render();
-      const modalCloseBtn = new CreateElement("button", {
-        textContent: "X",
-        className: "modal__close",
-      }).render();
+      modal.classList.add("active");
 
-      modal.append(modalCloseBtn, modalContent);
-      wrapper.append(modal);
-      document.body.prepend(wrapper);
-
-      wrapper.addEventListener("click", (event) => {
-        if (event.target.classList.contains("wrapper")) {
-          event.target.remove();
-        } else if (event.target.classList.contains("modal__close")) {
-          event.target.parentElement.parentElement.remove();
+      document.querySelector(".modal").addEventListener("click", (event) => {
+        if (event.target.classList.contains("modal")) {
+          modal.classList.remove("active");
+        } else if (event.target.classList.contains("modal-close")) {
+          modal.classList.remove("active");
         }
       });
     });
   }
 }
-
-export const modalWindow = new Modal();

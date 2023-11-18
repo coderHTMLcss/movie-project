@@ -1,9 +1,6 @@
-.idea//*
-.obsidian//*
-.vscode//*
-
-node_modules//*
-//node_modules//*
+.idea/*
+.obsidian/*
+.vscode/*
 
 **/.DS_Store
 *.xml
