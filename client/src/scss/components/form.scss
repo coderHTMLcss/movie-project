@@ -1,0 +1,55 @@
+.form-login.active,
+.form-register.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+
+  .form-field,
+  .form-btn {
+    padding: 15px 10px;
+    margin: 20px 0px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 2px solid $color-purple;
+    cursor: pointer;
+    color: $color-white;
+    transition: padding 0.3s ease-in;
+  }
+  .form-field:hover {
+    padding: 20px 15px;
+  }
+  .form-field:focus {
+    border: transparent;
+    outline: 2px solid $color-white;
+  }
+
+  .form-field::placeholder {
+    color: $color-purple;
+  }
+
+  .form-btn {
+    color: $color-purple;
+    transition: all 0.5s ease-in;
+  }
+
+  .form-btn:active,
+  .form-btn:focus,
+  .form-btn:hover {
+    background-color: $color-purple--light;
+    color: $color-white;
+    border: transparent;
+  }
+
+  .form-btn:focus,
+  .form-btn:hover {
+    outline: 2px solid $color-white;
+  }
+  .form-btn:hover {
+    @include text(22px, 24px, 500, $color-white);
+  }
+}
+.form-login,
+.form-register {
+  display: none;
+}
