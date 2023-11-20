@@ -62,25 +62,6 @@
     justify-content: center;
   }
 
-  // &__modal-btn {
-  //   padding: 11px 17px;
-  //   width: 120px;
-  //   border: 2px solid $color-purple;
-  //   outline: none;
-  //   cursor: pointer;
-  //   align-items: center;
-  //   border-radius: 5px;
-  //   @include text(22px, 24px, 500, $color-purple);
-
-  //   background-color: transparent;
-  // }
-
-  // &__modal-btn.active {
-  //   background-color: $color-purple--light;
-  //   color: $color-white;
-  //   border: 2px solid $color-white;
-  // }
-
   &__modal-btn {
     position: relative;
     width: 130px;
@@ -96,6 +77,12 @@
     box-shadow: inset 2px 2px 2px 0px $color-purple,
       7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     outline: none;
+  }
+
+  &__modal-btn:last-child {
+    transition: all 0.5s ease;
+    box-shadow: inset -2px 2px 2px 0px $color-purple,
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   }
 
   &__modal-btn.active {

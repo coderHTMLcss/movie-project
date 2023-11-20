@@ -16,10 +16,9 @@ form.renderFormRegistr();
 const modalWindow = new Modal();
 modalWindow.render(LOGIN_ROOT);
 
-const tabs = new Tabs();
-tabs.toggleForms();
+const tabs = new Tabs(".tabs__modal-head", ".tabs__modal-body");
 
-const switchToggle = new Switch();
-switchToggle.toggle(switchBody);
-//
-// modalWindow.render(modalBtnOpen);
+if (switchBody) {
+  const switchToggle = new Switch();
+  switchToggle.toggle(switchBody);
+}

@@ -1017,6 +1017,10 @@ body {
   box-shadow: inset 2px 2px 2px 0px #6100c2, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
+.tabs__modal-btn:last-child {
+  transition: all 0.5s ease;
+  box-shadow: inset -2px 2px 2px 0px #6100c2, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+}
 .tabs__modal-btn.active {
   background-color: #7900c2;
   color: #ffffff;

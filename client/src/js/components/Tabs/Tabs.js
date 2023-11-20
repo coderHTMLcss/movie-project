@@ -1,27 +1,33 @@
 export default class Tabs {
-  constructor() {
-    this.buttons = document.querySelectorAll(".tabs__modal-btn");
-    this.forms = document.querySelectorAll(".tabs__modal-body form");
+  constructor(selectorHead, selectorBody) {
+    this.buttonsWrapper = document.querySelector(selectorHead);
+    this.content = document.querySelector(selectorBody).childNodes;
 
-    this.buttons.forEach((button) => {
-      button.addEventListener("click", () => this.toggleForms(button));
-    });
+    this.toggleTabs();
   }
 
-  toggleForms(selectedButton) {
-    this.buttons.forEach((button) => {
-      button.classList.remove("active");
-      selectedButton.classList.add("active");
-    });
+  toggleTabs() {
+    if (this.buttonsWrapper) {
+      this.buttonsWrapper?.addEventListener("click", (event) => {
+        [...this.buttonsWrapper.children].forEach((button) => {
+          button.classList.remove("active");
+        });
+        event.target.classList.add("active");
 
-    const selectedForm = selectedButton.getAttribute("data-head");
+        this.content.forEach((item) => {
+          if (item.getAttribute("data-body") === event.target.dataset.head) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      });
+    } else {
+      console.log("I didn't find a class");
+    }
+  }
 
-    this.forms.forEach((form) => {
-      if (form.getAttribute("data-body") === selectedForm) {
-        form.classList.add("active");
-      } else {
-        form.classList.remove("active");
-      }
-    });
+  init() {
+    this.toggleTabs();
   }
 }
