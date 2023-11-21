@@ -141,11 +141,16 @@ a {
 body {
   display: flex;
   font-family: "Poppins", sans-serif;
-  background-color: #1a1a1a;
-  background: var(--Dark, linear-gradient(357deg, #37312a -5.36%, #191817 70.82%, #191817 78.81%));
   font-size: 16px;
   color: #ffffff;
   height: 100vh;
+  transition: all 1s ease-in;
+  background-color: rgb(119, 136, 153);
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  background-image: linear-gradient(357deg, #37312a -5.36%, #191817 70.82%, #191817 78.81%);
 }
 
 * {
@@ -761,7 +766,7 @@ body {
   position: sticky;
   top: 0;
   left: 0;
-  background-color: #21201e;
+  background-color: #5d5d8e;
   padding-top: 40px;
   width: 110px;
   height: 100vh;
@@ -769,8 +774,13 @@ body {
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  transition: all 1.3s ease;
+  box-shadow: #9c27b0 2px 0px 90px 0px;
+  transition: all 1s ease;
   overflow: hidden;
+}
+
+.sidebar.dark {
+  background-color: #21201e;
   box-shadow: 2px 0px 90px 0px rgba(97, 0, 194, 0.4);
 }
 
@@ -960,12 +970,11 @@ body {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .modal-wrapper {
   padding: 30px 30px;
-  width: 50%;
+  width: 40%;
   height: 65%;
   position: absolute;
   top: 50%;

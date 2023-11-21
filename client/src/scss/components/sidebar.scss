@@ -2,14 +2,18 @@
   position: sticky;
   top: 0;
   left: 0;
-  background-color: $color-sidebar;
+  background-color: $color-white--modal;
   padding-top: 40px;
   width: 110px;
   height: 100vh;
   @include flex(flex-start, center, column);
-
-  transition: all 1.3s ease;
+  box-shadow: #9c27b0 2px 0px 90px 0px;
+  transition: all 1s ease;
   overflow: hidden;
+}
+
+.sidebar.dark {
+  background-color: $color-sidebar;
   box-shadow: 2px 0px 90px 0px rgba(97, 0, 194, 0.4);
 }
 

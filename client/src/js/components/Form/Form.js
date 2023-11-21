@@ -5,6 +5,7 @@ import { FIELDS_DATA_REGISTER } from "../../constans/root.js";
 export default class Form {
   constructor(parent) {
     this.parent = parent;
+    console.log(this.parent);
   }
   renderFormLogin() {
     const form = new CreateElement("form", {

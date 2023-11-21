@@ -1,26 +1,31 @@
 export default class Switch {
-  toggle(switchBody) {
-    switchBody.addEventListener("click", () => {
-      switchBody.classList.toggle("off");
+  constructor(switchBody) {
+    this.toggleBtn = switchBody;
+  }
 
-      const elemToMod = document.querySelector(".ligth-theme");
-
-      document.body.style.transition = "background-color 1s, all 1s";
-      elemToMod.style.transition = "background-color 1s, all 1s";
-
-      if (switchBody.classList.contains("off")) {
-        document.body.style.backgroundImage =
-          "linear-gradient(357deg, #37312a -5.36%, #191817 70.82%, #191817 78.81%)";
-
-        document.body.style.backgroundColor = "#1a1a1a";
-
-        elemToMod.style.backgroundColor = "#21201e";
+  toggleTheme() {
+    this.toggleBtn.addEventListener("click", () => {
+      this.toggleBtn.classList.toggle("off");
+      if (localStorage.getItem("theme") === "dark") {
+        localStorage.removeItem("theme");
       } else {
-        elemToMod.style.backgroundColor = "#969696";
-        document.body.style.backgroundColor = "#969696";
-        document.body.style.backgroundImage =
-          "linear-gradient(357deg, #969696 -5.36%, #969696 70.82%, #969696 78.81%)";
+        localStorage.setItem("theme", "dark");
       }
+      this.addDarkClass();
     });
+  }
+
+  addDarkClass() {
+    const sideBar = document.querySelector(".sidebar");
+
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark");
+      sideBar.classList.add("dark");
+      this.toggleBtn.classList.add("off");
+    } else {
+      document.body.classList.remove("dark");
+      sideBar.classList.remove("dark");
+      this.toggleBtn.classList.remove("off");
+    }
   }
 }
