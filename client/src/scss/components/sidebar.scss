@@ -1,15 +1,16 @@
 .sidebar {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: $color-white--modal;
   padding-top: 40px;
   width: 110px;
   height: 100vh;
-  @include flex(flex-start, center, column);
+
   box-shadow: #9c27b0 2px 0px 90px 0px;
   transition: all 1s ease;
   overflow: hidden;
+  z-index: 2;
 }
 
 .sidebar.dark {
@@ -19,22 +20,16 @@
 
 .sidebar:hover {
   align-items: flex-start;
-  width: 274px;
-  padding-left: 40px;
+  width: 210px;
 }
 
 .navigation {
   transition: all 1.3s;
-  @include flex(flex-start, center, column);
-}
-
-.sidebar:hover .navigation {
-  @include flex(flex-start, flex-start, column);
+  margin-left: 39px;
 }
 
 .logo {
   @include flex(flex-start, center, row);
-
   column-gap: 7px;
   margin-bottom: 58px;
 
@@ -45,7 +40,6 @@
 
 .sidebar:hover .logo__name {
   @include text(22px, 24px, 700, $color-white);
-
   display: block;
 }
 
@@ -68,10 +62,11 @@
   border-bottom: 2px solid $color-white;
 }
 .span {
-  display: none;
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 .sidebar:hover .span {
-  display: block;
+  opacity: 1;
 }
 
 .community {

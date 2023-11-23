@@ -6,7 +6,7 @@
 .movie {
   &__wrapper {
     @include flex(flex-start, center, row);
-    flex-wrap: wrap;
+    position: relative;
   }
 
   &__item {
@@ -15,6 +15,14 @@
     height: 301px;
     margin: 0px 40px 16px 0;
     cursor: pointer;
+    background-color: transparent;
+    border-radius: 20px;
+    transition: box-shadow 0.5s ease-in;
+    box-shadow: 2px 0px 90px 0px rgba(97, 0, 194, 0.4);
+  }
+
+  &__item:hover {
+    box-shadow: 2px 0px 90px 0px rgba(194, 181, 0, 0.4);
   }
 
   &__img-container {
@@ -54,5 +62,26 @@
   &__description,
   span {
     @include text(14px, 16px, 400, $color-text);
+  }
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: $color-purple;
+  color: $color-white;
+  cursor: pointer;
+
+  &.next {
+    right: 0;
+  }
+
+  &.prev {
+    left: 0;
   }
 }

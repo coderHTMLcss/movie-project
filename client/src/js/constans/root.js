@@ -3,7 +3,7 @@ export const API_ROUTING = "/titles";
 export const switchBody = document.getElementById("switch");
 export const LOGIN_ROOT = document.querySelector(".button__primary--login");
 
-export const FIELDS_DATA = [
+export const FIELDS_DATA_LOGIN = [
   {
     className: "form-field",
     type: "text",
@@ -27,24 +27,32 @@ export const FIELDS_DATA_REGISTER = [
   {
     className: "form-field",
     type: "text",
-    name: "username",
+    name: "fullName",
+    placeholder: "Enter your nickName",
+    value: "",
+    required: true,
+  },
+  {
+    className: "form-field",
+    type: "password",
+    name: "password",
+    placeholder: "Password",
+    value: "",
+    required: true,
+  },
+  // {
+  //   className: "form-field",
+  //   type: "password",
+  //   name: "password",
+  //   placeholder: "Password",
+  //   value: "",
+  //   required: true,
+  // },
+  {
+    className: "form-field",
+    type: "email",
+    name: "email",
     placeholder: "Email address",
-    value: "",
-    required: true,
-  },
-  {
-    className: "form-field",
-    type: "password",
-    name: "password",
-    placeholder: "Password",
-    value: "",
-    required: true,
-  },
-  {
-    className: "form-field",
-    type: "password",
-    name: "password",
-    placeholder: "Password",
     value: "",
     required: true,
   },

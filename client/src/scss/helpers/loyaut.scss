@@ -3,15 +3,30 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
   color: $color-white;
-  height: 100vh;
-  transition: all 1s ease-in;
+  height: 100%;
+  transition: all 1s ease;
   background-color: rgb(119 136 153);
+  // background-image: $linear-gradient;
 }
 
 body.dark {
   background-color: $color-background;
-  background-image: $linear-gradient;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    opacity: 0;
+    transition: all 1s ease;
+    background-image: $linear-gradient;
+
+    // background-color: $color-background;
+  }
 }
+
+// body.dark::before {
+//   opacity: 1;
+// }
 
 * {
   margin: 0;

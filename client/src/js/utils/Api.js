@@ -19,7 +19,7 @@ export default class API {
     const requestOptions = {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "Content-type": "application/json; charset=UTF-8",
       },
       body: JSON.stringify(data),
     };

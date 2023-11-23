@@ -19,14 +19,6 @@
   box-shadow: 0 0 35px 1px #565656;
 }
 
-.sidebar:hover #switch {
-  position: absolute;
-
-  left: 30%;
-
-  transform: translate(-50%, -50%) scale(1);
-}
-
 #switch.off {
   border-color: rgb(40, 40, 51);
   background-color: rgb(23, 23, 35);

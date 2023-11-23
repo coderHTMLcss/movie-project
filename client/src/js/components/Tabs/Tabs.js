@@ -15,7 +15,7 @@ export default class Tabs {
         event.target.classList.add("active");
 
         this.content.forEach((item) => {
-          if (item.getAttribute("data-body") === event.target.dataset.head) {
+          if (item.dataset.body === event.target.dataset.head) {
             item.classList.add("active");
           } else {
             item.classList.remove("active");
