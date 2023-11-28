@@ -53,3 +53,12 @@
 .form-register {
   display: none;
 }
+
+.error-register,
+.error-login {
+  color: red;
+}
+
+.error-register {
+  position: absolute;
+}

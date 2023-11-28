@@ -1,13 +1,11 @@
-export const API_URL = "https://moviesdatabase.p.rapidapi.com";
-export const API_ROUTING = "/titles";
 export const switchBody = document.getElementById("switch");
-export const LOGIN_ROOT = document.querySelector(".button__primary--login");
+export const LOGIN_BTN = document.querySelector(".button__primary--login");
 
 export const FIELDS_DATA_LOGIN = [
   {
     className: "form-field",
     type: "text",
-    name: "username",
+    name: "email",
     placeholder: "Email address",
     value: "",
     required: true,
@@ -20,7 +18,13 @@ export const FIELDS_DATA_LOGIN = [
     value: "",
     required: true,
   },
-  { className: "form-btn", type: "submit", name: "submit", value: "Login" },
+  {
+    className: "form-btn",
+    id: "login",
+    type: "submit",
+    name: "submit",
+    value: "Login",
+  },
 ];
 
 export const FIELDS_DATA_REGISTER = [
@@ -56,5 +60,11 @@ export const FIELDS_DATA_REGISTER = [
     value: "",
     required: true,
   },
-  { className: "form-btn", type: "submit", name: "submit", value: "Sign Up" },
+  {
+    className: "form-btn",
+    id: "register",
+    type: "submit",
+    name: "submit",
+    value: "Sign Up",
+  },
 ];

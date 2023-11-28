@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./style/main.css" />
     <title>Home</title>
 </head>
@@ -301,9 +303,23 @@
                     </li>
                     <li class="control-panel__item">
                         <figure class="control-panel__svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g opacity="0.8">
+                                    <path
+                                        d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z"
+                                        stroke="white" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </g>
+                            </svg>
 
                         </figure>
                     </li>
+                    <span class="user"></span>
                 </ul>
             </nav>
             <div class="header-content">
@@ -358,73 +374,130 @@
         <main class="main">
             <section class="trending">
                 <h3 class="title">Trending</h3>
-                <ul class="movie__wrapper">
-                    <li class="movie__item">
-                        <picture class="movie__img-container">
-                            <img class="movie__img" src="./img/movie_picture/tokyo.png" alt="Tokyo">
-                        </picture>
-                        <div class="movie__bottom">
-                            <h4 class="movie__title">
-                                Tokyo Train
-                            </h4>
-                            <p class="movie__description">2023 <span>| Action comedy</span></p>
-                        </div>
-                    </li>
-                    <li class="movie__item">
-                        <picture class="movie__img">
-                            <img src="./img/movie_picture/moonfall.png" alt="Moonfall">
-                        </picture>
-                        <div class="movie__bottom">
-                            <h4 class="movie__title">
-                                Moonfall
-                            </h4>
-                            <p class="movie__description">2022 <span>| Sci-fi</span></p>
-                        </div>
-                    </li>
-                    <li class="movie__item">
-                        <picture class="movie__img">
-                            <img src="./img/movie_picture/life-paris.png" alt="Paris">
-                        </picture>
-                        <div class="movie__bottom">
-                            <h4 class="movie__title">
-                                Life in Paris
-                            </h4>
-                            <p class="movie__description">2023 <span>| Documentary series</span></p>
-                        </div>
-                    </li>
-                    <li class="movie__item">
-                        <picture class="movie__img">
-                            <img src="./img/movie_picture/house-gucci.png" alt="House of Gucci">
-                        </picture>
-                        <div class="movie__bottom">
-                            <h4 class="movie__title">
-                                House of Gucci
-                            </h4>
-                            <p class="movie__description">2021 <span>| Drama</span></p>
-                        </div>
-                    </li>
-                    <li class="movie__item">
-                        <picture class="movie__img">
-                            <img src="./img/movie_picture/house-gucci.png" alt="House of Gucci">
-                        </picture>
-                        <div class="movie__bottom">
-                            <h4 class="movie__title">
-                                House of Gucci
-                            </h4>
-                            <p class="movie__description">2021 <span>| Drama</span></p>
-                        </div>
-                    </li>
-                    <div class="button-wrapper">
-                        <button class="prev">
-                            < </button>
-                                <button class="next"> > </button>
+
+                <div class="container">
+                    <div class="slider-wrapper">
+                        <button id="prev-slide" class="slide-button material-symbols-rounded">
+                            chevron_left
+                        </button>
+                        <ul class="movie__list">
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/tokyo.png" alt="Tokyo">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        Tokyo Train
+                                    </h4>
+                                    <p class="movie__description">2023 <span>| Action comedy</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/moonfall.png" alt="Moonfall">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        Moonfall
+                                    </h4>
+                                    <p class="movie__description">2022 <span>| Sci-fi</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/life-paris.png" alt="Paris">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        Life in Paris
+                                    </h4>
+                                    <p class="movie__description">2023 <span>| Documentary series</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/house-gucci.png"
+                                        alt="House of Gucci">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        House of Gucci
+                                    </h4>
+                                    <p class="movie__description">2021 <span>| Drama</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/house-gucci.png"
+                                        alt="House of Gucci">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        House of Gucci
+                                    </h4>
+                                    <p class="movie__description">2021 <span>| Drama</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/house-gucci.png"
+                                        alt="House of Gucci">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        House of Gucci
+                                    </h4>
+                                    <p class="movie__description">2021 <span>| Drama</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/house-gucci.png"
+                                        alt="House of Gucci">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        House of Gucci
+                                    </h4>
+                                    <p class="movie__description">2021 <span>| Drama</span></p>
+                                </div>
+                            </li>
+                            <li class="movie__item">
+                                <picture class="movie__img-container">
+                                    <img class="movie__img" src="./img/movie_picture/house-gucci.png"
+                                        alt="House of Gucci">
+                                </picture>
+                                <div class="movie__bottom">
+                                    <h4 class="movie__title">
+                                        House of Gucci
+                                    </h4>
+                                    <p class="movie__description">2021 <span>| Drama</span></p>
+                                </div>
+                            </li>
+                        </ul>
+                        <button id="next-slide" class="slide-button material-symbols-rounded">
+                            chevron_right
+                        </button>
                     </div>
-                </ul>
+                </div>
+
             </section>
             <div class="popular"></div>
         </main>
     </section>
 
+    <div class="popup">
+        <figure class="popup__svg">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="30" height="30" />
+                <path d="M7 13.4545L8.97619 15.3409C9.36262 15.7098 9.97072 15.7098 10.3571 15.3409L17 9"
+                    stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="12" cy="12" r="9" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </figure>
+        <p class="popup__text"></p>
+    </div>
 
     <script src="./js/main.min.js"></script>
 </body>

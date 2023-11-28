@@ -7,6 +7,7 @@ export default class Form {
   constructor(parent) {
     this.parent = parent;
   }
+
   renderFormLogin(urlParams) {
     const form = new CreateElement("form", {
       className: "form-login active",
@@ -45,12 +46,55 @@ export default class Form {
 
     formFields.forEach((input) => {
       dataFields[input.name] = input.value;
+      // input.value = "";
     });
 
     const api = new API("http://localhost:8080/api/auth/");
     const postReq = await api.postRequest(urlParams, dataFields);
 
-    console.log(postReq);
-    // window.location.href = "./home.html";
+    switch (urlParams) {
+      case "signup":
+        if (postReq.statusText === "Такой email уже существует") {
+          const errorRegister = new CreateElement("span", {
+            className: "error-register",
+            textContent: postReq.statusText + " !",
+          }).render();
+
+          const formRegister = document.querySelector(".form-register");
+
+          formRegister.insertAdjacentElement("afterbegin", errorRegister);
+          setTimeout(() => {
+            errorRegister.remove();
+          }, 1000);
+        } else if (postReq.statusText === "Thanks for registering.") {
+          setTimeout(() => {
+            window.location.href = "./home.html";
+          }, 500);
+        }
+        break;
+      case "signin":
+        if (postReq.message) {
+          const errorLogin = new CreateElement("span", {
+            className: "error-login",
+            textContent: postReq.message,
+          }).render();
+          const formLogin = document.querySelector(".form-login");
+          formLogin.insertAdjacentElement("afterbegin", errorLogin);
+
+          setTimeout(() => {
+            errorLogin.remove();
+          }, 1000);
+        } else {
+          const userData = {
+            id: postReq.data._id,
+            fullName: postReq.data.fullName,
+          };
+          sessionStorage.setItem("userData", JSON.stringify(userData));
+          setTimeout(() => {
+            window.location.href = "./home.html";
+          }, 500);
+        }
+        break;
+    }
   }
 }
