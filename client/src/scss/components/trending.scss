@@ -1,6 +1,6 @@
-// .trending {
-//   position: relative;
-// }
+.trending {
+  margin: 20px 0px 30px;
+}
 .container {
   max-width: 1325px;
   width: 95%;
@@ -44,10 +44,9 @@
 
   &__list {
     @include flex(space-between, inherit, row);
-
     column-gap: 40px;
-    margin-bottom: 15px;
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
   }
 

@@ -1,5 +1,6 @@
 export const switchBody = document.getElementById("switch");
 export const LOGIN_BTN = document.querySelector(".button__primary--login");
+export const MOVIE_ROOT = document.querySelector(".movie__list");
 
 export const FIELDS_DATA_LOGIN = [
   {

@@ -1,12 +1,17 @@
 export default class Slider {
-  constructor() {
+  constructor(slideCount) {
     this.imageList = document.querySelector(".movie__list");
-    this.slideButtons = document.querySelectorAll(
-      ".slider-wrapper .slide-button"
-    );
+
+    this.slideButtons = document.querySelectorAll(".slide-button");
+    this.slideCount = slideCount;
 
     this.maxScrollLeft =
       this.imageList.scrollWidth - this.imageList.clientWidth;
+    // console.log(this.imageList.scrollWidth);
+    // console.log(this.imageList.clientWidth);
+
+    // console.log(this.maxScrollLeft);
+    // console.dir(this.imageList);
 
     this.init();
   }
@@ -15,7 +20,10 @@ export default class Slider {
     this.slideButtons.forEach((button) => {
       button.addEventListener("click", () => {
         const direction = button.id === "prev-slide" ? -1 : 1;
-        const scrollAmount = this.imageList.clientWidth * direction;
+
+        const scrollAmount =
+          (this.imageList.clientWidth / this.slideCount) * direction;
+
         this.imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
     });
@@ -34,3 +42,7 @@ export default class Slider {
     });
   }
 }
+
+const slideCount = 2;
+const slider = new Slider(slideCount);
+slider.initSlider();
