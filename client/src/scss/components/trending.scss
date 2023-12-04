@@ -2,7 +2,7 @@
   margin: 20px 0px 30px;
 }
 .container {
-  max-width: 1325px;
+  max-width: 1320px;
   width: 95%;
   margin: 0 auto;
 }
@@ -43,8 +43,12 @@
   position: relative;
 
   &__list {
-    @include flex(space-between, inherit, row);
-    column-gap: 40px;
+    // @include flex(space-between, inherit, row);
+    // column-gap: 40px;
+    display: grid;
+    grid-gap: 40px;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 120px) / 4);
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: none;
@@ -55,7 +59,7 @@
   }
 
   &__item {
-    min-width: 301px;
+    min-width: 300px;
     height: 301px;
     position: relative;
     cursor: pointer;

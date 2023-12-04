@@ -53,4 +53,6 @@ export default class Card {
     movieItem.append(movieImgContainer, movieBottomDiv);
     this.parent.append(movieItem);
   }
+
+  renderFullCard() {}
 }

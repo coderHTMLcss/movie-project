@@ -1,17 +1,7 @@
 export default class Slider {
   constructor(slideCount) {
-    this.imageList = document.querySelector(".movie__list");
-
     this.slideButtons = document.querySelectorAll(".slide-button");
-    this.slideCount = slideCount;
-
-    this.maxScrollLeft =
-      this.imageList.scrollWidth - this.imageList.clientWidth;
-    // console.log(this.imageList.scrollWidth);
-    // console.log(this.imageList.clientWidth);
-
-    // console.log(this.maxScrollLeft);
-    // console.dir(this.imageList);
+    this.slideCount = slideCount || 1;
 
     this.init();
   }
@@ -19,10 +9,22 @@ export default class Slider {
   initSlider() {
     this.slideButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        const direction = button.id === "prev-slide" ? -1 : 1;
+        this.imageItem = this.imageList.querySelector(".movie__item");
+        this.imageList = document.querySelector(".movie__list");
 
-        const scrollAmount =
-          (this.imageList.clientWidth / this.slideCount) * direction;
+        let direction = button.id === "prev-slide" ? -1 : 1;
+
+        let scrollAmount = 0;
+
+        if (button.id === "prev-slide") {
+          scrollAmount =
+            this.imageItem.clientWidth * direction * this.slideCount -
+            40 * this.slideCount;
+        } else {
+          scrollAmount =
+            this.imageItem.clientWidth * direction * this.slideCount +
+            40 * this.slideCount;
+        }
 
         this.imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
       });
@@ -30,6 +32,9 @@ export default class Slider {
   }
 
   handleSlideButtons() {
+    this.maxScrollLeft =
+      this.imageList.scrollWidth - this.imageList.clientWidth;
+
     this.slideButtons[0].style.display =
       this.imageList.scrollLeft <= 0 ? "none" : "block";
     this.slideButtons[1].style.display =
@@ -37,9 +42,15 @@ export default class Slider {
   }
 
   init() {
+    this.imageList = document.querySelector(".movie__list");
+
     this.imageList.addEventListener("scroll", () => {
       this.handleSlideButtons();
     });
+
+    if (this.imageList.children.length) {
+      this.initSlider();
+    }
   }
 }
 
