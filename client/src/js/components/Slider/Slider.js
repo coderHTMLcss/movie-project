@@ -53,7 +53,3 @@ export default class Slider {
     }
   }
 }
-
-const slideCount = 2;
-const slider = new Slider(slideCount);
-slider.initSlider();

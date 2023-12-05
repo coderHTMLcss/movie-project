@@ -112,6 +112,59 @@ body.dark {
     transition: fill 1s ease, stroke 1s ease-in-out;
   }
 }
+.movie-like {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 0.6px solid $color-white;
+
+  background: linear-gradient(
+    99deg,
+    $color-white 3.36%,
+    rgba(255, 255, 255, 0) 238.16%
+  );
+
+  backdrop-filter: blur(6px);
+}
+
+.movie-like {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 0.6px solid $color-white;
+
+  background: linear-gradient(
+    99deg,
+    $color-white 3.36%,
+    rgba(255, 255, 255, 0) 238.16%
+  );
+
+  backdrop-filter: blur(6px);
+
+  &__svg {
+    @include flex(center, center, row);
+    width: 100%;
+    height: 100%;
+  }
+
+  .svg-image1 {
+    display: block;
+  }
+  .svg-image2 {
+    display: none;
+  }
+}
 
 .popup {
   position: absolute;
