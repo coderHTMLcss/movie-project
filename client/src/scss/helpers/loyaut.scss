@@ -34,9 +34,40 @@ body.dark {
   box-sizing: border-box;
 }
 
+* {
+  scrollbar-color: $color-purple $color-white;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $color-purple;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $color-white;
+}
+
+.main-favourites {
+  position: absolute;
+  top: 200px;
+  left: 150px;
+}
+
+.header-favourites {
+  width: calc(100vw - 110px);
+  margin-left: 140px;
+  background-image: none;
+}
+
 .title {
   @include text(20px, 18px, 600, $color-white);
-  margin: 0px 0 16px 20px;
+  margin: 0px 0 16px 60px;
 }
 
 .button {
@@ -112,6 +143,7 @@ body.dark {
     transition: fill 1s ease, stroke 1s ease-in-out;
   }
 }
+
 .movie-like {
   display: flex;
   align-items: center;
@@ -158,10 +190,10 @@ body.dark {
     height: 100%;
   }
 
-  .svg-image1 {
+  .svg-empty.active {
     display: block;
   }
-  .svg-image2 {
+  .svg-full {
     display: none;
   }
 }

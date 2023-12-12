@@ -7,8 +7,7 @@ export default class API {
     const requestOptions = {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "7c100d6800msh864e17c0bf7bfe1p1d852djsn00c671cbea4a",
-        "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+        "Content-type": "application/json; charset=UTF-8",
       },
     };
     const response = await fetch(this.ROOT_URL + routing, requestOptions);

@@ -158,12 +158,43 @@ body.dark {
   box-sizing: border-box;
 }
 
+* {
+  scrollbar-color: #6100c2 #ffffff;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6100c2;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.main-favourites {
+  position: absolute;
+  top: 200px;
+  left: 150px;
+}
+
+.header-favourites {
+  width: calc(100vw - 110px);
+  margin-left: 140px;
+  background-image: none;
+}
+
 .title {
   font-size: 20px;
   line-height: 18px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0px 0 16px 20px;
+  margin: 0px 0 16px 60px;
 }
 
 .button {
@@ -255,10 +286,10 @@ body.dark {
   width: 100%;
   height: 100%;
 }
-.movie-like .svg-image1 {
+.movie-like .svg-empty.active {
   display: block;
 }
-.movie-like .svg-image2 {
+.movie-like .svg-full {
   display: none;
 }
 
@@ -933,7 +964,7 @@ body.dark {
   margin-left: 140px;
 }
 
-.header {
+.header-home {
   height: 455px;
   background-image: url("../img/picture/backgriund.png");
   background-repeat: no-repeat;
@@ -1270,6 +1301,7 @@ body.dark {
   display: none;
 }
 .movie__item {
+  width: 22%;
   min-width: 300px;
   height: 301px;
   position: relative;
@@ -1314,4 +1346,15 @@ body.dark {
   line-height: 16px;
   font-weight: 400;
   color: #000000;
+}
+
+.continue {
+  width: 100%;
+}
+
+.continue-movie__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px 20px 40px;
 }

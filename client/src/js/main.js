@@ -7,6 +7,7 @@ import Form from "./components/Form/Form";
 import Tabs from "./components/Tabs/Tabs";
 import Slider from "./components/Slider/Slider";
 import Card from "./components/Card/Card";
+import InfinityScroll from "./components/InfinityScroll/InfinityScroll";
 
 const formWrapper = document.querySelector(".tabs__modal-body");
 
@@ -54,7 +55,7 @@ if (window.location.pathname === "/home.html") {
 
   (async () => {
     // const api = new API("http://localhost:8080/api/");
-    // const movieList = await api.getRequest("movies");
+    // const movieList = await api.getRequest("movies/trending");
     const movieList = [
       {
         id: 1,
@@ -277,14 +278,62 @@ if (window.location.pathname === "/home.html") {
         trending: false,
         continue: true,
       },
+      {
+        id: 15,
+        title: "Tokyo Train",
+        description:
+          "The movie follows the lives of a wealthy family, the Johnsons, who appear to have it all: a grand mansion, luxurious cars, and expensive designer clothing. However, behind the facade of their lavish lifestyle, there are deep-seated tensions and secrets that threaten to tear the family apart.",
+        year: "2022",
+        genre: "Action comedy",
+        runtime: "2h 38m",
+        rating: 7.9,
+        images: "./img/movie_picture/tokyo.png",
+        trending: false,
+        continue: true,
+      },
+      {
+        id: 16,
+        title: "Moonfall",
+        description:
+          "The movie follows the lives of a wealthy family, the Johnsons, who appear to have it all: a grand mansion, luxurious cars, and expensive designer clothing. However, behind the facade of their lavish lifestyle, there are deep-seated tensions and secrets that threaten to tear the family apart.",
+        year: "2022",
+        genre: "Sci-fi",
+        runtime: "1h 16m",
+        rating: 7.2,
+        images: "./img/movie_picture/moonfall.png",
+        trending: false,
+        continue: true,
+      },
+      {
+        id: 17,
+        title: "House of Wealth",
+        description:
+          "The movie follows the lives of a wealthy family, the Johnsons, who appear to have it all: a grand mansion, luxurious cars, and expensive designer clothing. However, behind the facade of their lavish lifestyle, there are deep-seated tensions and secrets that threaten to tear the family apart.",
+        year: "2023",
+        genre: "Drama",
+        runtime: "2h 38m",
+        rating: 7.8,
+        images: "./img/movie_picture/house-gucci.png",
+        trending: false,
+        continue: true,
+      },
     ];
-    // movieList.forEach((movie) => {
-    //   if (movie.trending === true) {
-    //   }
-    // });
 
-    const card = new Card(movieList, MOVIE_ROOT);
+    const parentTrending = document.querySelector(".movie__list");
+    const parentContinue = document.querySelector(".continue-movie__list");
+
+    const filteredTrending = movieList.filter(({ trending }) => trending);
+    const filteredContinue = movieList.filter((item) => item.continue);
+
+    const card = new Card(filteredTrending, parentTrending);
     card.render();
+
+    const infinityScroll = new InfinityScroll(
+      filteredContinue,
+      4,
+      parentContinue
+    );
+    infinityScroll.scroll();
   })();
 }
 

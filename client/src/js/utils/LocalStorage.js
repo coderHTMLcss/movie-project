@@ -4,31 +4,10 @@ export default class LocalStorage {
   }
   getMovie() {
     const product = localStorage.getItem(this.keyName);
-    if (product) {
-      return JSON.parse(localStorage.getItem(this.keyName));
-    } else {
-      return [];
-    }
+    return product ? JSON.parse(localStorage.getItem(this.keyName)) : [];
   }
 
   putMovie(movies) {
-    // console.log(storedMovies);
-    const storedMovies = this.getMovie();
-    movies.forEach((movie) => {
-      const index = storedMovies.findIndex((film) => film.id === movie.id);
-      //   console.log(index);
-
-      if (index !== -1) {
-        // storedMovies.splice(index, 1);
-      } else {
-        storedMovies.push(movie);
-        console.log(movie);
-        localStorage.setItem(this.keyName, JSON.stringify(storedMovies));
-      }
-    });
-
-    return {
-      movies,
-    };
+    localStorage.setItem(this.keyName, JSON.stringify(movies));
   }
 }
