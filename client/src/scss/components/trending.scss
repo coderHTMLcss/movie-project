@@ -39,10 +39,11 @@
 .slide-button#next-slide {
   right: -25px;
 }
+
 .movie {
   position: relative;
 
-  &__list {
+  &__list--trending {
     // @include flex(space-between, inherit, row);
     // column-gap: 40px;
     display: grid;
@@ -54,12 +55,12 @@
     scrollbar-width: none;
   }
 
-  &__list::-webkit-scrollbar {
+  &__list--trending::-webkit-scrollbar {
     display: none;
   }
 
   &__item {
-    width: 22%;
+    width: 30%;
     min-width: 300px;
     height: 301px;
     position: relative;

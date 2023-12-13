@@ -7,6 +7,7 @@ export default class InfinityScroll {
     this.parentElem = parentElem;
     this.start = 0;
     this.end = this.count;
+    this.isLoading = false;
   }
 
   render() {
@@ -23,18 +24,24 @@ export default class InfinityScroll {
 
   scroll() {
     window.addEventListener("scroll", () => {
-      const scrolledY = window.scrollY;
-      //   console.log(scrolledY);
+      const { scrollY, innerHeight } = window;
+      //   console.log(scrollY);
+      //   console.log(innerHeight);
+
       const pageHeight = document.documentElement.scrollHeight;
-      //   console.dir(document);
       //   console.log(pageHeight);
-      const viewportHeight = window.innerHeight;
-      //   console.log(viewportHeight);
+      const scrollToEnd = scrollY + innerHeight >= pageHeight - 50;
 
-      const scrollToEnd = scrolledY + viewportHeight >= pageHeight - 50;
+      const loader = document.querySelector(".loader");
 
-      if (scrollToEnd) {
-        this.render();
+      if (scrollToEnd && !this.isLoading) {
+        this.isLoading = true;
+        loader.classList.remove("hidden");
+        setTimeout(() => {
+          this.render();
+          this.isLoading = false;
+          loader.classList.add("hidden");
+        }, 500);
       }
     });
 

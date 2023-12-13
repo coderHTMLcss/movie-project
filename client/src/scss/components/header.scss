@@ -1,9 +1,11 @@
-.header-home {
-  height: 455px;
-  background-image: url("../img/picture/backgriund.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.header {
+  &--home {
+    height: 455px;
+    background-image: url("../img/picture/backgriund.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .header-nav,

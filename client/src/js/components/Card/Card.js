@@ -1,5 +1,6 @@
 import CreateElement from "../../utils/CreateElement";
 import LocalStorage from "../../utils/LocalStorage";
+import { changeContent } from "../../utils/helpers";
 
 export default class Card {
   constructor(moviesList, parent) {
@@ -70,6 +71,7 @@ export default class Card {
       this.parent.append(movieItem);
       movieLike.addEventListener("click", this.toggleSVG.bind(this, movie));
     });
+    changeContent();
   }
 
   renderFullCard() {}
@@ -104,7 +106,6 @@ export default class Card {
 
       svgFull.classList.add("active");
       svgFull.style.display = "block";
-      console.log("svg1");
     } else {
       svgEmpty.classList.add("active");
       svgEmpty.style.display = "block";

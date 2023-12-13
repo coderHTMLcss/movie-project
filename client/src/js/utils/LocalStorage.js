@@ -3,8 +3,8 @@ export default class LocalStorage {
     this.keyName = "movie";
   }
   getMovie() {
-    const product = localStorage.getItem(this.keyName);
-    return product ? JSON.parse(localStorage.getItem(this.keyName)) : [];
+    const movie = localStorage.getItem(this.keyName);
+    return movie ? JSON.parse(localStorage.getItem(this.keyName)) : [];
   }
 
   putMovie(movies) {
