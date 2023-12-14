@@ -4,7 +4,9 @@ export default class InfinityScroll {
   constructor(data, count, parentElem) {
     this.data = data;
     this.count = count;
-    this.parentElem = parentElem;
+    this.parentElem =
+      parentElem || document.querySelector(".movie__list--trendingPage");
+
     this.start = 0;
     this.end = this.count;
     this.isLoading = false;

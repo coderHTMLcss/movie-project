@@ -5,7 +5,6 @@ import Modal from "./components/Modal/Modal";
 import Form from "./components/Form/Form";
 import Tabs from "./components/Tabs/Tabs";
 import Slider from "./components/Slider/Slider";
-
 import { getAndRenderData } from "./utils/helpers";
 
 const formWrapper = document.querySelector(".tabs__modal-body");
@@ -36,7 +35,6 @@ window.addEventListener("DOMContentLoaded", async () => {
     switchToggle.toggleTheme();
     switchToggle.addDarkClass();
   }
-  getAndRenderData();
 
   if (window.location.pathname === "/home.html") {
     const slideCount = 3;
@@ -51,4 +49,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   // const popup = document.querySelector(".popup");
   // popup.textContent = postReq.statusText;
   // popup.classList.add("active");
+  // getAndRenderData();
+  // console.log(data);
+  getAndRenderData();
 });

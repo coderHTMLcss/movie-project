@@ -14,45 +14,60 @@ export async function getAndRenderData() {
 
   const filteredContinue = movieList.filter((item) => item.continue);
 
-  const card = new Card(filteredTrending, parentTrending);
-  card.render();
+  if (window.location.pathname === "/home.html") {
+    const card = new Card(filteredTrending, parentTrending);
+    card.render();
 
-  const infinityScroll = new InfinityScroll(
-    filteredContinue,
-    4,
-    parentContinue
-  );
-  infinityScroll.scroll();
+    const infinityScroll = new InfinityScroll(
+      filteredContinue,
+      4,
+      parentContinue
+    );
+    infinityScroll.scroll();
+  } else if (window.location.pathname === "/trending.html") {
+    const parentTrendingPage = document.querySelector(
+      ".movie__list--trendingPage"
+    );
+
+    const infinityScroll = new InfinityScroll(
+      filteredTrending,
+      4,
+      parentTrendingPage
+    );
+    infinityScroll.scroll();
+  }
 
   return movieList;
 }
 
 export function changeContent() {
   const movieItems = document.querySelectorAll(".movie__item");
-  //   console.log(movieItems);
-  if (movieItems) {
-    movieItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const movieTitle = item.querySelector(".movie__title").textContent;
-        const movieDescription = item.querySelector(
-          ".movie__description"
-        ).textContent;
-        const movieImg = item.querySelector(".movie__img").src;
 
-        const header = document.querySelector(".header");
-        const headerTitle = document.querySelector(".header-content__title");
-        const headerDescription = document.querySelector(
-          ".header-content__description"
-        );
+  if (window.location.pathname === "/home.html") {
+    if (movieItems) {
+      movieItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          const movieTitle = item.querySelector(".movie__title").textContent;
+          const movieDescription = item.querySelector(
+            ".movie__description"
+          ).textContent;
+          const movieImg = item.querySelector(".movie__img").src;
 
-        header.style.transition = "background-image 1s ease";
-        headerTitle.style.transition = "all 1s ease";
-        headerDescription.style.transition = "all 1s ease";
+          const header = document.querySelector(".header");
+          const headerTitle = document.querySelector(".header-content__title");
+          const headerDescription = document.querySelector(
+            ".header-content__description"
+          );
 
-        header.style.backgroundImage = `url(${movieImg})`;
-        headerTitle.textContent = movieTitle;
-        headerDescription.textContent = movieDescription;
+          header.style.transition = "background-image 1s ease";
+          headerTitle.style.transition = "all 1s ease";
+          headerDescription.style.transition = "all 1s ease";
+
+          header.style.backgroundImage = `url(${movieImg})`;
+          headerTitle.textContent = movieTitle;
+          headerDescription.textContent = movieDescription;
+        });
       });
-    });
+    }
   }
 }

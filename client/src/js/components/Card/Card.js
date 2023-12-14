@@ -1,6 +1,6 @@
 import CreateElement from "../../utils/CreateElement";
 import LocalStorage from "../../utils/LocalStorage";
-import { changeContent } from "../../utils/helpers";
+import { changeContent, getAndRenderData } from "../../utils/helpers";
 
 export default class Card {
   constructor(moviesList, parent) {
@@ -71,6 +71,7 @@ export default class Card {
       this.parent.append(movieItem);
       movieLike.addEventListener("click", this.toggleSVG.bind(this, movie));
     });
+
     changeContent();
   }
 

@@ -196,18 +196,6 @@ body.dark {
   fill: #6100c2;
 }
 
-.main--favourites, .main--trending {
-  position: absolute;
-  top: 130px;
-  margin-left: 140px;
-}
-
-.header--favourites, .header--trending {
-  width: calc(100vw - 110px);
-  margin-left: 140px;
-  background-image: none;
-}
-
 .title {
   font-size: 20px;
   line-height: 18px;
@@ -1379,4 +1367,25 @@ body.dark {
   margin: 0px 20px 40px;
   column-gap: 40px;
   row-gap: 40px;
+}
+
+.wrapper {
+  height: 100vh;
+  width: calc(100vw - 110px);
+  margin-left: 140px;
+}
+.wrapper .trending {
+  margin: 20px 15px;
+}
+.wrapper .trending .title--trending {
+  margin: 0px 0 16px 0px;
+}
+.wrapper .movie__list--trendingPage {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 40px;
+}
+.wrapper .movie__list--trendingPage .movie__item {
+  width: 23%;
 }
