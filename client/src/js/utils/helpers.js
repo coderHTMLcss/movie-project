@@ -2,17 +2,24 @@ import API from "./Api";
 import Card from "../components/Card/Card";
 import InfinityScroll from "../components/InfinityScroll/InfinityScroll";
 
-export async function getAndRenderData() {
+const getDataFromApi = async () => {
   const api = new API("http://localhost:8080/api/");
-  const movieList = await api.getRequest("movies");
+  const data = await api.getRequest("movies");
 
-  const parentTrending = document.querySelector(".movie__list--trending");
+  return data;
+};
 
-  const parentContinue = document.querySelector(".movie__list--continue");
+export async function getAndRenderData() {
+  const movieList = await getDataFromApi();
 
   const filteredTrending = movieList.filter(({ trending }) => trending);
-
   const filteredContinue = movieList.filter((item) => item.continue);
+
+  const parentTrending = document.querySelector(".movie__list--trending");
+  const parentContinue = document.querySelector(".movie__list--continue");
+  const parentTrendingPage = document.querySelector(
+    ".movie__list--trendingPage"
+  );
 
   if (window.location.pathname === "/home.html") {
     const card = new Card(filteredTrending, parentTrending);
@@ -25,15 +32,12 @@ export async function getAndRenderData() {
     );
     infinityScroll.scroll();
   } else if (window.location.pathname === "/trending.html") {
-    const parentTrendingPage = document.querySelector(
-      ".movie__list--trendingPage"
-    );
-
     const infinityScroll = new InfinityScroll(
       filteredTrending,
       4,
       parentTrendingPage
     );
+
     infinityScroll.scroll();
   }
 
@@ -69,5 +73,40 @@ export function changeContent() {
         });
       });
     }
+  }
+}
+
+export async function showFullCard() {
+  if (window.location.pathname === "/trending.html") {
+    const movieList = await getDataFromApi();
+
+    const filteredTrending = movieList.filter(({ trending }) => trending);
+
+    const parentFullCard = document.querySelector(".movie-card__list");
+    const itemsWrapper = document.querySelector(".movie__list--trendingPage");
+
+    itemsWrapper.addEventListener("click", (event) => {
+      const clickedMovieItem = event.target.closest(".movie__item");
+
+      if (clickedMovieItem) {
+        const selectedMovieId = +clickedMovieItem.dataset.id;
+        // console.log(selectedMovieId);
+
+        const selectedMovie = filteredTrending.find(
+          (movie) => movie.id === selectedMovieId
+        );
+        // console.log(selectedMovie);
+        // filteredTrending.forEach((movie) => {
+        //   // console.log(movie.id === selectedMovieId);
+        // });
+        // console.log(selectedMovie);
+
+        if (selectedMovie) {
+          parentFullCard.innerHTML = "";
+          const card = new Card(selectedMovie, parentFullCard);
+          card.renderFullCard(selectedMovie, parentFullCard);
+        }
+      }
+    });
   }
 }

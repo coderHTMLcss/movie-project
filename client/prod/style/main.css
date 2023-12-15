@@ -1380,12 +1380,83 @@ body.dark {
 .wrapper .trending .title--trending {
   margin: 0px 0 16px 0px;
 }
-.wrapper .movie__list--trendingPage {
+.wrapper .trending .movie__list--trendingPage {
   display: flex;
   flex-wrap: wrap;
   column-gap: 40px;
   row-gap: 40px;
 }
-.wrapper .movie__list--trendingPage .movie__item {
+.wrapper .trending .movie__list--trendingPage .movie__item {
   width: 23%;
+}
+.wrapper .trending .movie-card__list {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.wrapper .trending .movie-card__item {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  flex-direction: row;
+  column-gap: 24px;
+}
+.wrapper .trending .movie-card__img {
+  width: 534px;
+  height: 431px;
+  flex-shrink: 0;
+}
+.wrapper .trending .movie-card__container {
+  max-width: 700px;
+  width: 100%;
+}
+.wrapper .trending .movie-card__title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 12px;
+}
+.wrapper .trending .movie-card__title {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.wrapper .trending .movie-card__svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  flex-direction: row;
+  column-gap: 8px;
+}
+.wrapper .trending .movie-card__rating, .wrapper .trending .movie-card__year, .wrapper .trending .movie-card__genre, .wrapper .trending .movie-card__time {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+  color: inherit;
+}
+.wrapper .trending .movie-card__info {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  flex-direction: row;
+  column-gap: 40px;
+  margin-bottom: 21px;
+}
+.wrapper .trending .movie-card__description {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: inherit;
+  margin-bottom: 26px;
+}
+.wrapper .trending .movie-card__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  flex-direction: row;
+  column-gap: 16px;
 }

@@ -5,7 +5,7 @@ import Modal from "./components/Modal/Modal";
 import Form from "./components/Form/Form";
 import Tabs from "./components/Tabs/Tabs";
 import Slider from "./components/Slider/Slider";
-import { getAndRenderData } from "./utils/helpers";
+import { getAndRenderData, showFullCard } from "./utils/helpers";
 
 const formWrapper = document.querySelector(".tabs__modal-body");
 
@@ -52,4 +52,5 @@ window.addEventListener("DOMContentLoaded", async () => {
   // getAndRenderData();
   // console.log(data);
   getAndRenderData();
+  showFullCard();
 });
