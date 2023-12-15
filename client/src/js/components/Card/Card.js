@@ -13,7 +13,7 @@ export default class Card {
       const { id, title, year, images, genre } = movie;
 
       const movieItem = new CreateElement("li", {
-        className: "movie__item active",
+        className: "movie__item",
         dataset: { id: id },
       }).render();
 

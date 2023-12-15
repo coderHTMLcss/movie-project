@@ -87,24 +87,27 @@ export async function showFullCard() {
 
     itemsWrapper.addEventListener("click", (event) => {
       const clickedMovieItem = event.target.closest(".movie__item");
+      const allItems = document.querySelectorAll(".movie__item");
+
+      allItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      clickedMovieItem.classList.add("active");
 
       if (clickedMovieItem) {
         const selectedMovieId = +clickedMovieItem.dataset.id;
-        // console.log(selectedMovieId);
 
         const selectedMovie = filteredTrending.find(
           (movie) => movie.id === selectedMovieId
         );
-        // console.log(selectedMovie);
-        // filteredTrending.forEach((movie) => {
-        //   // console.log(movie.id === selectedMovieId);
-        // });
-        // console.log(selectedMovie);
 
         if (selectedMovie) {
           parentFullCard.innerHTML = "";
-          const card = new Card(selectedMovie, parentFullCard);
-          card.renderFullCard(selectedMovie, parentFullCard);
+          setTimeout(() => {
+            const card = new Card();
+            card.renderFullCard(selectedMovie, parentFullCard);
+          }, 500);
         }
       }
     });

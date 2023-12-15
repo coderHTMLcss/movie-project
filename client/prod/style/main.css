@@ -1388,6 +1388,12 @@ body.dark {
 }
 .wrapper .trending .movie__list--trendingPage .movie__item {
   width: 23%;
+  opacity: 0.7;
+}
+.wrapper .trending .movie__list--trendingPage .movie__item.active {
+  width: 23%;
+  opacity: 1;
+  box-shadow: 3px 3px 20px 3px #6100c2;
 }
 .wrapper .trending .movie-card__list {
   margin-top: 60px;
