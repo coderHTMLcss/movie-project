@@ -6,6 +6,7 @@ import Form from "./components/Form/Form";
 import Tabs from "./components/Tabs/Tabs";
 import Slider from "./components/Slider/Slider";
 import { getAndRenderData, showFullCard } from "./utils/helpers";
+import Search from "./components/Search/Search";
 
 const formWrapper = document.querySelector(".tabs__modal-body");
 
@@ -42,6 +43,18 @@ window.addEventListener("DOMContentLoaded", async () => {
     slider.initSlider();
   }
 
+  const search = new Search();
+  search.showInput();
+  search.searchMovie();
+
+  const buttonActive = document.getElementById("menuToggle");
+  const sideBar = document.querySelector(".sidebar");
+
+  buttonActive.addEventListener("click", () => {
+    sideBar.classList.toggle("active");
+    buttonActive.classList.toggle("active");
+  });
+
   // const api = new API("http://localhost:8080/api/auth/");
   // const postReq = await api.postRequest("signin");
 
@@ -51,6 +64,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   // popup.classList.add("active");
   // getAndRenderData();
   // console.log(data);
+
   getAndRenderData();
   showFullCard();
 });

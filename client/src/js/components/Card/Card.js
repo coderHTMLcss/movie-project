@@ -1,6 +1,7 @@
 import CreateElement from "../../utils/CreateElement";
 import LocalStorage from "../../utils/LocalStorage";
 import { changeContent } from "../../utils/helpers";
+import API from "../../utils/Api";
 
 export default class Card {
   constructor(moviesList, parent) {
@@ -200,7 +201,38 @@ export default class Card {
     parent.append(movieItem);
   }
 
-  toggleSVG(movie, event) {
+  async toggleSVG(movie, event) {
+    this.setItemToLocalstorage(movie);
+
+    const svgEmpty = event.currentTarget.querySelector(".svg-empty");
+    const svgFull = event.currentTarget.querySelector(".svg-full");
+
+    if (svgEmpty.classList.contains("active")) {
+      svgEmpty.classList.remove("active");
+      svgEmpty.style.display = "none";
+
+      svgFull.classList.add("active");
+      svgFull.style.display = "block";
+    } else {
+      svgEmpty.classList.add("active");
+      svgEmpty.style.display = "block";
+
+      svgFull.classList.remove("active");
+      svgFull.style.display = "none";
+    }
+
+    // const requestOptions = {
+    //   like: true,
+    // };
+
+    // const api = new API("http://localhost:8080/api/");
+
+    // api.patchRequest(`movies?id=${movie.id}`, requestOptions);
+
+    // відправляти запит patch на зміну властивості лайк true or false по даному діваку
+  }
+
+  setItemToLocalstorage(movie) {
     const localStorage = new LocalStorage();
     const movies = localStorage.getMovie();
 
@@ -220,24 +252,5 @@ export default class Card {
 
       localStorage.putMovie(movies);
     }
-
-    const svgEmpty = event.currentTarget.querySelector(".svg-empty");
-    const svgFull = event.currentTarget.querySelector(".svg-full");
-
-    if (svgEmpty.classList.contains("active")) {
-      svgEmpty.classList.remove("active");
-      svgEmpty.style.display = "none";
-
-      svgFull.classList.add("active");
-      svgFull.style.display = "block";
-    } else {
-      svgEmpty.classList.add("active");
-      svgEmpty.style.display = "block";
-
-      svgFull.classList.remove("active");
-      svgFull.style.display = "none";
-    }
-
-    // відправляти запит patch на зміну властивості лайк true or false по даному діваку
   }
 }

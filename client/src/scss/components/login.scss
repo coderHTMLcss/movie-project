@@ -8,7 +8,7 @@
     rgb(25, 24, 23) 258.28%
   );
 
-  .login-wrapper {
+  &__wrapper {
     width: inherit;
     height: inherit;
 
@@ -18,8 +18,8 @@
     background-position: center;
   }
 
-  .login-conntent {
-    @include flex(flex-start, center, column);
+  &__conntent {
+    @include flex(center, center, column);
 
     position: absolute;
     top: 50%;
@@ -27,8 +27,9 @@
     transform: translate(-50%, -50%);
   }
 
-  .login-description {
+  &__description {
     color: $color-white;
+    text-align: center;
 
     font-family: "Poppins", sans-serif;
     @include text(18px, 20px, 400);
@@ -45,17 +46,17 @@
     }
   }
 
-  .login-registry {
+  &__registry {
     @include flex(space-between, center, row);
 
     column-gap: 4px;
 
-    &__account,
-    &__signup {
+    &-account,
+    &-signup {
       @include text(16px, 20px, 500);
     }
 
-    &__signup {
+    &-signup {
       color: inherit;
       font-weight: 700;
       text-decoration-line: underline;

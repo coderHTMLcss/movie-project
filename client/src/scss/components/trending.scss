@@ -38,6 +38,10 @@
 }
 .slide-button#next-slide {
   right: -25px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    right: 0px;
+  }
 }
 
 .movie {

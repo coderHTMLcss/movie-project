@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 export default class InfinityScroll {
   constructor(data, count, parentElem) {
     this.data = data;
+
     this.count = count;
     this.parentElem =
       parentElem || document.querySelector(".movie__list--trendingPage");
@@ -12,27 +13,31 @@ export default class InfinityScroll {
     this.isLoading = false;
   }
 
-  render() {
-    const data = this.data.slice(this.start, this.end);
-
-    const card = new Card(data, this.parentElem);
-    card.render();
+  render(listData) {
+    let data = [];
+    if (listData) {
+      data = listData.slice(this.start, this.end);
+      const card = new Card(data, this.parentElem);
+      card.render();
+    } else {
+      data = this.data.slice(this.start, this.end);
+      const card = new Card(data, this.parentElem);
+      card.render();
+    }
 
     this.start = this.end;
     this.end += this.count;
-
-    return data;
   }
 
   scroll() {
     window.addEventListener("scroll", () => {
       const { scrollY, innerHeight } = window;
-      //   console.log(scrollY);
-      //   console.log(innerHeight);
-
       const pageHeight = document.documentElement.scrollHeight;
-      //   console.log(pageHeight);
       const scrollToEnd = scrollY + innerHeight >= pageHeight - 50;
+
+      const updatedContinue = JSON.parse(
+        localStorage.getItem("updatedContinue")
+      );
 
       const loader = document.querySelector(".loader");
 
@@ -40,7 +45,7 @@ export default class InfinityScroll {
         this.isLoading = true;
         loader.classList.remove("hidden");
         setTimeout(() => {
-          this.render();
+          this.render(updatedContinue);
           this.isLoading = false;
           loader.classList.add("hidden");
         }, 500);

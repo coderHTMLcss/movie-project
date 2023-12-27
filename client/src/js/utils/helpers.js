@@ -2,12 +2,13 @@ import API from "./Api";
 import Card from "../components/Card/Card";
 import InfinityScroll from "../components/InfinityScroll/InfinityScroll";
 
-const getDataFromApi = async () => {
+export async function getDataFromApi() {
   const api = new API("http://localhost:8080/api/");
   const data = await api.getRequest("movies");
-
+  // const wishlist = await api.getRequest("wishlist");
+  // console.log(wishlist);
   return data;
-};
+}
 
 export async function getAndRenderData() {
   const movieList = await getDataFromApi();
@@ -25,6 +26,8 @@ export async function getAndRenderData() {
     const card = new Card(filteredTrending, parentTrending);
     card.render();
 
+    localStorage.removeItem("updatedContinue");
+
     const infinityScroll = new InfinityScroll(
       filteredContinue,
       4,
@@ -37,7 +40,6 @@ export async function getAndRenderData() {
       4,
       parentTrendingPage
     );
-
     infinityScroll.scroll();
   }
 
@@ -103,11 +105,28 @@ export async function showFullCard() {
         );
 
         if (selectedMovie) {
-          parentFullCard.innerHTML = "";
+          const movieCardList = document.querySelector(
+            ".movie-card__list.visible"
+          );
+
+          movieCardList.classList.remove("visible");
+          movieCardList.style.opacity = 0;
+
           setTimeout(() => {
+            parentFullCard.innerHTML = "";
             const card = new Card();
-            card.renderFullCard(selectedMovie, parentFullCard);
+            card.renderFullCard(selectedMovie, movieCardList);
+
+            const movieCardList1 = document.querySelector(".movie-card__list");
+            movieCardList1.classList.add("visible");
+            movieCardList1.style.opacity = 1;
           }, 500);
+
+          parentFullCard.addEventListener("click", (event) => {
+            if (event.target.classList.contains("movie-card__item")) {
+              event.target.remove();
+            }
+          });
         }
       }
     });

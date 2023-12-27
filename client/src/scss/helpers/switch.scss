@@ -17,6 +17,10 @@
   transition: background-color 1s, left 1s;
 
   box-shadow: 0 0 35px 1px #565656;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    top: 95%;
+  }
 }
 
 #switch.off {

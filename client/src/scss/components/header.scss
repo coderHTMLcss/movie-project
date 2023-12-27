@@ -6,6 +6,70 @@
     background-size: cover;
     background-position: center;
   }
+
+  .navigation-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 3px;
+    background-color: transparent;
+    border: none;
+    top: 20px;
+    right: 20px;
+
+    @media screen and (min-width: $tablet) {
+      display: none;
+    }
+  }
+
+  .navigation-span {
+    position: absolute;
+    background-color: $color-white;
+
+    top: 14px;
+    left: 4px;
+    width: 22px;
+    height: 2px;
+
+    border-radius: 2px;
+    transition: all 0.5s;
+  }
+
+  .navigation-button::before,
+  .navigation-button::after {
+    content: "";
+    background-color: $color-white;
+    position: absolute;
+    left: 4px;
+    width: 22px;
+    height: 2px;
+
+    border-radius: 2px;
+    transition: all 0.5s;
+  }
+
+  .navigation-button::before {
+    top: 4px;
+  }
+
+  .navigation-button::after {
+    bottom: 4px;
+  }
+
+  .navigation-button.active::before {
+    transform: rotate(45deg);
+    top: 14px;
+  }
+
+  .navigation-button.active span {
+    display: none;
+  }
+
+  .navigation-button.active::after {
+    transform: rotate(-45deg);
+    top: 14px;
+  }
 }
 
 .header-nav,
@@ -15,13 +79,35 @@
 
 .header-nav {
   padding: 42px 42px;
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    padding: 20px 10px;
+    background-color: $color-purple;
+    justify-content: center;
+  }
 
   &__list {
     @include flex(space-between, center, row);
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      display: none;
+    }
+
+    &--sidebar {
+      display: none;
+
+      @media screen and (min-width: $mobile) and (max-width: $tablet) {
+        display: block;
+        margin-bottom: 45px;
+      }
+    }
   }
 
   &__item {
     margin: 0 32px 0 0;
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      margin: 0 0 15px 0;
+    }
   }
 
   &__link {
@@ -34,18 +120,58 @@
     font-size: 140%;
   }
 }
+
 .control-panel {
   @include flex(inherit, center, row);
-
-  column-gap: 24px;
+  position: relative;
+  gap: 24px;
 
   &__item {
     cursor: pointer;
+  }
+
+  #search-item {
+    position: absolute;
+    left: -330px;
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      position: absolute;
+      left: -78.5px;
+      top: 50px;
+    }
+  }
+
+  .searchBar {
+    width: 300px;
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 9px;
+    display: none;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  .searchBar.active {
+    display: block;
   }
 }
 
 .header-content {
   margin: 113px auto auto 32px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    margin: 80px 0;
+  }
 
   &__title,
   &__description {

@@ -11,6 +11,18 @@
   transition: all 1s ease;
   overflow: hidden;
   z-index: 2;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.sidebar.active {
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    display: block;
+    width: 165px;
+    padding-top: 15px;
+  }
 }
 
 .sidebar.dark {
@@ -21,11 +33,19 @@
 .sidebar:hover {
   align-items: flex-start;
   width: 210px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    width: 165px;
+  }
 }
 
 .navigation {
   transition: all 1.3s;
   margin-left: 39px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    margin-left: 15px;
+  }
 }
 
 .logo {
@@ -33,14 +53,33 @@
   column-gap: 7px;
   margin-bottom: 58px;
 
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    margin-bottom: 25px;
+  }
+
   &__name {
     display: none;
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      display: block;
+      @include text(16px, 21px, 600, $color-white);
+    }
   }
 }
 
 .sidebar:hover .logo__name {
   @include text(22px, 24px, 700, $color-white);
   display: block;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    @include text(16px, 21px, 600, $color-white);
+  }
+}
+
+.nav {
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    margin-bottom: 45px;
+  }
 }
 
 .nav,
@@ -48,6 +87,10 @@
 .logout-mode {
   &__item {
     margin-bottom: 35px;
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      margin-bottom: 15px;
+    }
   }
 
   &__link {
@@ -64,6 +107,10 @@
 .span {
   opacity: 0;
   transition: all 0.5s ease;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    opacity: 1;
+  }
 }
 .sidebar:hover .span {
   opacity: 1;
@@ -71,10 +118,19 @@
 
 .community {
   margin-top: 122px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    margin-top: 0px;
+    margin-bottom: 45px;
+  }
 }
 
 .logout-mode {
   margin-top: 122px;
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    margin-top: 0px;
+  }
 
   &__item:nth-child(2) {
     margin-bottom: 0px;

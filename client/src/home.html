@@ -138,6 +138,18 @@
                     </li>
                 </menu>
 
+                <ul class="header-nav__list header-nav__list--sidebar">
+                    <li class="header-nav__item">
+                        <a href="#" class="header-nav__link">Movies</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#" class="header-nav__link">Series</a>
+                    </li>
+                    <li class="header-nav__item">
+                        <a href="#" class="header-nav__link">Documentaries</a>
+                    </li>
+                </ul>
+
                 <menu class="community">
                     <li class="community__item">
                         <a class="community__link" href="#">
@@ -240,16 +252,6 @@
                     <li id="switch">
                         <div id="contentwrapper">
                             <div id="circle"></div>
-
-                            <!-- <div id="stars">
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                <div class="star"></div>
-                                <div id="shtngstarwrapper">
-                                    <div id="shootingstar"></div>
-                                </div>
-                            </div> -->
-
                             <div>
                                 <div class="cloud">
                                     <div class="cloudpart"></div>
@@ -274,6 +276,11 @@
 
     <section class="hero">
         <header class="header header--home">
+
+            <button class="navigation-button" type="button" id="menuToggle">
+                <span class="navigation-span"></span>
+            </button>
+
             <nav class="header-nav">
                 <ul class="header-nav__list">
                     <li class="header-nav__item">
@@ -288,7 +295,13 @@
                 </ul>
 
                 <ul class="control-panel">
-                    <li class="control-panel__item">
+                    <li id="search-item" class="control-panel__item">
+                        <form class="searchBar" action="#">
+                            <input placeholder="Search..." id="searchBar" name="searchBar" type="text">
+                        </form>
+                        <ul class="search-movie"></ul>
+                    </li>
+                    <li id="search-svg" class="control-panel__item">
                         <figure class="control-panel__svg">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -298,7 +311,6 @@
                                 <path d="M20.9999 20.9999L16.6499 16.6499" stroke="white" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-
                         </figure>
                     </li>
                     <li class="control-panel__item">
@@ -329,10 +341,11 @@
                                         stroke-linejoin="round" />
                                 </g>
                             </svg>
-
                         </figure>
                     </li>
-                    <span class="user"></span>
+                    <li class="control-panel__item">
+                        <span class="user"></span>
+                    </li>
                 </ul>
             </nav>
             <div class="header-content">

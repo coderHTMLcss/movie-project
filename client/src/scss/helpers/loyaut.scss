@@ -68,7 +68,7 @@ body.dark {
 
 .loader svg path,
 .loader svg rect {
-  fill: $color-purple;
+  fill: red;
 }
 
 .title {
@@ -88,14 +88,10 @@ body.dark {
   &__primary--login {
     font-family: inherit;
     padding: 17px 24px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
 
-    font-size: inherit;
-    line-height: 20px;
-    font-weight: 600;
+    @include flex(center, center, row);
+
+    @include text(inherit, 20px, 600);
 
     border-radius: 14px;
     transition: all 0.7s ease-in-out;
@@ -104,6 +100,14 @@ body.dark {
   &__primary--login {
     padding: 17px 90px;
     transition: all 1s ease-in-out;
+
+    @media screen and (min-width: 320px) and (max-width: $mobile) {
+      padding: 15px 50px;
+    }
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      padding: 15px 65px;
+    }
   }
 
   &__primary:active,
@@ -131,6 +135,14 @@ body.dark {
 
   &__primary--login:hover {
     padding: 17px 65px;
+
+    @media screen and (min-width: 320px) and (max-width: $mobile) {
+      padding: 15px 50px;
+    }
+
+    @media screen and (min-width: $mobile) and (max-width: $tablet) {
+      padding: 10px 40px;
+    }
   }
 
   &__secondary {

@@ -10,7 +10,7 @@ export default class Modal {
       document.querySelector(".modal").addEventListener("click", (event) => {
         if (event.target.classList.contains("modal")) {
           modal.classList.remove("active");
-        } else if (event.target.classList.contains("modal-close")) {
+        } else if (event.target.classList.contains("modal__close")) {
           modal.classList.remove("active");
         }
       });
